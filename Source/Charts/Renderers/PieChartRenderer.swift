@@ -435,8 +435,12 @@ open class PieChartRenderer: DataRenderer
                     DrawLine: do
                     {
                         if dataSet.useValueColorForLine
-                        {
-                            context.setStrokeColor(dataSet.color(atIndex: j).cgColor)
+                        {   if j < 5  {
+                               context.setStrokeColor(dataSet.color(atIndex: j).cgColor)
+                            } else {
+                               context.setStrokeColor(UIColor.clear.cgColor).cgColor)
+                            }
+                            
                         }
                         else if let valueLineColor = dataSet.valueLineColor
                         {
